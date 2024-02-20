@@ -21,6 +21,9 @@ public class AnswersServiceImpl implements AnswersService{
         if(list.size() > 0){
             throw new CustomException("You Already did this question!");
         }
+        if (a.getEmailAddress().length() == 0){
+            throw new CustomException("Please enter your email first!");
+        }
         return answersRepository.save(a);
     }
 
