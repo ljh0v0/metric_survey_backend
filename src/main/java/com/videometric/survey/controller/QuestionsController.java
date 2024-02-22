@@ -40,17 +40,11 @@ public class QuestionsController {
         QuestionsDto qDto = new QuestionsDto(q);
 
         Random random = new Random();
-        List<Videos> v_list1 = videosService.getByModelId(q.getModel1());
-        int index1 = random.nextInt(v_list1.size());
-        Videos v1 = v_list1.get(index1);
-        qDto.setV1Id(v1.getId());
-        qDto.setV1Url(v1.getUrl());
-
-        List<Videos> v_list2 = videosService.getByModelId(q.getModel2());
-        int index2 = random.nextInt(v_list2.size());
-        Videos v2 = v_list2.get(index2);
-        qDto.setV2Id(v2.getId());
-        qDto.setV2Url(v2.getUrl());
+        List<Videos> v_list = videosService.getByModelPairId(q.getModelPair());
+        int index = random.nextInt(v_list.size());
+        Videos v = v_list.get(index);
+        qDto.setVideoId(v.getId());
+        qDto.setVideoUrl(v.getUrl());
 
         return R.success(qDto);
 

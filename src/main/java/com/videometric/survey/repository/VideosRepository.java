@@ -9,5 +9,5 @@ import java.util.List;
 @Repository
 public interface VideosRepository extends JpaRepository<Videos, Integer> {
 
-    public List<Videos> findByModelId(String modelId);
+    public List<Videos> findByModelPairId(String modelPairId);
 }

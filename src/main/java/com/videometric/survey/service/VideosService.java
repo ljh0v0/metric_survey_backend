@@ -7,5 +7,5 @@ import java.util.List;
 public interface VideosService {
     public Videos saveVideos(Videos v);
     public List<Videos> getAllVideos();
-    public List<Videos> getByModelId(String model_id);
+    public List<Videos> getByModelPairId(String model_id);
 }

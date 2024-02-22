@@ -11,7 +11,7 @@ public class Videos {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private String modelId;
+    private String modelPairId;
 
     private String url;
 
@@ -23,7 +23,7 @@ public class Videos {
     }
 
     public String getModel_id() {
-        return modelId;
+        return modelPairId;
     }
 
     public String getUrl() {
@@ -35,7 +35,7 @@ public class Videos {
     }
 
     public void setModel_id(String model_id) {
-        this.modelId = model_id;
+        this.modelPairId = model_id;
     }
 
     public void setUrl(String url) {

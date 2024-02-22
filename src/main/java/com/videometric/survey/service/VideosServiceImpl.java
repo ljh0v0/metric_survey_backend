@@ -25,7 +25,7 @@ public class VideosServiceImpl implements VideosService{
     }
 
     @Override
-    public List<Videos> getByModelId(String model_id) {
-        return videosRepository.findByModelId(model_id);
+    public List<Videos> getByModelPairId(String model_id) {
+        return videosRepository.findByModelPairId(model_id);
     }
 }
