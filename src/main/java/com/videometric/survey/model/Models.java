@@ -6,22 +6,22 @@ import jakarta.persistence.Id;
 @Entity
 public class Models {
     @Id
-    private String modelPairId;
+    private String modelId;
     private int groupId;
 
     public Models() {
     }
 
-    public void setModelPairId(String modelPairId) {
-        this.modelPairId = modelPairId;
+    public void setModelId(String modelId) {
+        this.modelId = modelId;
     }
 
     public void setGroupId(int groupId) {
         this.groupId = groupId;
     }
 
-    public String getModelPairId() {
-        return modelPairId;
+    public String getModelId() {
+        return modelId;
     }
 
     public int getGroupId() {

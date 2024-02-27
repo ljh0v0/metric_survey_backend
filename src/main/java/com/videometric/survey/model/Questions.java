@@ -12,6 +12,10 @@ public class Questions {
 
     protected String modelPair;
 
+    protected String model1;
+
+    protected String model2;
+
     public Questions() {
     }
 
@@ -27,6 +31,14 @@ public class Questions {
         return modelPair;
     }
 
+    public String getModel1() {
+        return model1;
+    }
+
+    public String getModel2() {
+        return model2;
+    }
+
     public void setQuestionId(int questionId) {
         this.questionId = questionId;
     }
@@ -37,5 +49,9 @@ public class Questions {
 
     public void setModelPair(String modelPair) {
         this.modelPair = modelPair;
+    }
+
+    public void setModel1(String model1) {
+        this.model1 = model1;
     }
 }

@@ -9,6 +9,8 @@ import com.videometric.survey.service.VideosService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 
@@ -41,11 +43,20 @@ public class QuestionsController {
 
         Random random = new Random();
         List<Videos> v_list = videosService.getByModelPairId(q.getModelPair());
-        int index = random.nextInt(v_list.size());
-        Videos v = v_list.get(index);
-        qDto.setVideoId(v.getId());
-        qDto.setVideoUrl(v.getUrl());
-
+        List<Integer> vids = new ArrayList<>();
+        List<String> vUrls = new ArrayList<>();
+        HashSet<Integer> set = new HashSet<>();
+        while(set.size() < 3){
+            int index = random.nextInt(v_list.size());
+            if (!set.contains(index)){
+                Videos v = v_list.get(index);
+                vids.add(v.getId());
+                vUrls.add(v.getUrl());
+                set.add(index);
+            }
+        }
+        qDto.setVideoIds(vids);
+        qDto.setVideoUrls(vUrls);
         return R.success(qDto);
 
     }
