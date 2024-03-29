@@ -32,5 +32,15 @@ public class QuestionsServiceImpl implements QuestionsService {
                 .orElseThrow(() -> new EntityNotFoundException("Question not found with id " + id));
     }
 
+    @Override
+    public int getMaxSurveyId() {
+        return questionsRepository.findMaxSurveyId();
+    }
+
+    @Override
+    public List<Questions> getBySurveyId(int surveyId) {
+        return questionsRepository.findBySurveyId(surveyId);
+    }
+
 
 }

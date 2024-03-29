@@ -8,13 +8,15 @@ public class Questions {
     @Id
     protected int questionId;
 
+    protected int surveyId;
+
     protected int groupId;
 
     protected String modelPair;
 
-    protected String model1;
+    protected int model1;
 
-    protected String model2;
+    protected int model2;
 
     public Questions() {
     }
@@ -31,12 +33,16 @@ public class Questions {
         return modelPair;
     }
 
-    public String getModel1() {
+    public int getModel1() {
         return model1;
     }
 
-    public String getModel2() {
+    public int getModel2() {
         return model2;
+    }
+
+    public int getSurveyId() {
+        return surveyId;
     }
 
     public void setQuestionId(int questionId) {
@@ -51,7 +57,15 @@ public class Questions {
         this.modelPair = modelPair;
     }
 
-    public void setModel1(String model1) {
+    public void setModel1(int model1) {
         this.model1 = model1;
+    }
+
+    public void setModel2(int model2) {
+        this.model2 = model2;
+    }
+
+    public void setSurveyId(int surveyId) {
+        this.surveyId = surveyId;
     }
 }

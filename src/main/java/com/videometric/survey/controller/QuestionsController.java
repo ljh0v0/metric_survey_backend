@@ -2,8 +2,10 @@ package com.videometric.survey.controller;
 
 import com.videometric.survey.Dto.QuestionsDto;
 import com.videometric.survey.common.R;
+import com.videometric.survey.model.Counter;
 import com.videometric.survey.model.Questions;
 import com.videometric.survey.model.Videos;
+import com.videometric.survey.service.CounterService;
 import com.videometric.survey.service.QuestionsService;
 import com.videometric.survey.service.VideosService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,9 @@ public class QuestionsController {
     @Autowired
     private VideosService videosService;
 
+    @Autowired
+    private CounterService counterService;
+
     @PostMapping("/add")
     public R<Questions> add(@RequestBody Questions questions){
         Questions q = questionsService.saveQuestions(questions);
@@ -32,7 +37,10 @@ public class QuestionsController {
 
     @GetMapping("/getAll")
     public R<List<Questions>> getAll(){
-        List<Questions> list = questionsService.getAllQuestions();
+        int surveyNum = questionsService.getMaxSurveyId() + 1;
+        Counter c = counterService.hitCounter();
+        int sId = c.getCnt() % surveyNum;
+        List<Questions> list = questionsService.getBySurveyId(sId);
         return R.success(list);
     }
 

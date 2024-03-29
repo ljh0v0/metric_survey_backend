@@ -11,6 +11,7 @@ public class QuestionsDto extends Questions {
 
     public QuestionsDto(Questions q) {
         this.questionId = q.getQuestionId();
+        this.surveyId = q.getSurveyId();
         this.groupId = q.getGroupId();
         this.modelPair = q.getModelPair();
         this.model1 = q.getModel1();

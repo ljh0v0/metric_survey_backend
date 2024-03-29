@@ -9,4 +9,6 @@ public interface QuestionsService {
     public Questions saveQuestions(Questions q);
     public List<Questions> getAllQuestions();
     public Questions getById(int id);
+    public int getMaxSurveyId();
+    public List<Questions> getBySurveyId(int surveyId);
 }
